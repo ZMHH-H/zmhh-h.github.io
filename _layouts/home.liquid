@@ -1,0 +1,115 @@
+---
+layout: default
+---
+<div class="academic-home">
+  <section class="home-intro" id="intro" aria-labelledby="intro-heading">
+    <div class="intro-copy">
+      <p class="section-label">Intro</p>
+      <h1 id="intro-heading">Minghao Zhu <span lang="zh">朱铭皓</span></h1>
+      <p class="intro-field">
+        <span>Physical AI</span>
+        <span>Embodied Intelligence</span>
+        <span>MLLMs</span>
+        <span>Agents</span>
+      </p>
+      <p class="intro-statement">{{ site.data.homepage.research_statement }}</p>
+      <div class="intro-bio">{{ content }}</div>
+      <div class="intro-links" aria-label="Contact and profiles">
+        <a href="mailto:{{ site.data.socials.email }}">Email <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/{{ site.data.socials.github_username }}">GitHub <span aria-hidden="true">↗</span></a>
+        {% if site.data.socials.scholar_userid %}
+          <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}"
+            >Google Scholar <span aria-hidden="true">↗</span></a
+          >
+        {% else %}
+          <span class="profile-pending" title="Profile link to be added">Google Scholar</span>
+        {% endif %}
+      </div>
+    </div>
+    <figure class="intro-portrait">
+      <img src="{{ page.profile_image | relative_url }}" alt="{{ page.profile_image_alt }}" width="260" height="320" fetchpriority="high">
+    </figure>
+  </section>
+  <section class="home-section" id="news" aria-labelledby="news-heading">
+    <div class="section-heading">
+      <h2 id="news-heading">News</h2>
+      <a class="section-more" href="{{ '/news/' | relative_url }}">All news <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="home-news">
+      {% assign featured_news = site.news | where: 'featured', true | sort: 'date' | reverse %}
+      {% for item in featured_news limit: 3 %}
+        {% include personal_news_row.liquid item=item %}
+      {% endfor %}
+    </div>
+  </section>
+  <section class="home-section" id="experiences" aria-labelledby="experiences-heading">
+    <div class="section-heading"><h2 id="experiences-heading">Experiences</h2></div>
+    {% assign experience_groups = 'Research,Education' | split: ',' %}
+    {% for group in experience_groups %}
+      {% assign entries = site.data.homepage.experiences | where: 'type', group %}
+      <section class="experience-group" aria-labelledby="{{ group | downcase }}-heading">
+        <h3 class="experience-group-heading" id="{{ group | downcase }}-heading">
+          {% if group == 'Research' %}Research Experience{% else %}Education{% endif %}
+        </h3>
+        <div class="experience-list">
+          {% for experience in entries %}
+            <div class="experience-row">
+              <h4>{{ experience.organization }}</h4>
+              <p class="experience-role">
+                {{ experience.role }}
+                {% if experience.advisors %}
+                  · Advisors:
+                  {% for advisor in experience.advisors %}
+                    <a href="{{ advisor.url }}">{{ advisor.name }}</a>
+                    {%- unless forloop.last %}, {% endunless %}
+                  {% endfor %}
+                {% endif %}
+              </p>
+              <p class="experience-period">{{ experience.period }}</p>
+              {% if experience.description %}
+                <p class="experience-description">{{ experience.description }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </section>
+  <section class="home-section" id="publications" aria-labelledby="publications-heading">
+    <div class="section-heading">
+      <h2 id="publications-heading">Publications <span class="heading-qualifier">(selected)</span></h2>
+      <a class="section-more" href="{{ '/publications/' | relative_url }}">Full publication list <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="home-publications">
+      {% include publication_contribution_note.liquid %}
+      {% bibliography --file home-papers --group_by none --template home_publication --query @*[selected=true]* %}
+    </div>
+  </section>
+  <section class="home-section home-awards" id="awards-honors" aria-labelledby="awards-heading">
+    <div class="section-heading"><h2 id="awards-heading">Awards &amp; Honors</h2></div>
+    <ul class="award-list">
+      {% for award in site.data.homepage.awards %}
+        <li>
+          <strong>{{ award.title }}</strong><span class="award-organization"> · {{ award.organization }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="home-section home-services" id="academic-services" aria-labelledby="services-heading">
+    <div class="section-heading"><h2 id="services-heading">Academic Services</h2></div>
+    {% if site.data.homepage.academic_services.size > 0 %}
+      {% for service in site.data.homepage.academic_services %}
+        <h3 class="service-category">{{ service.category }}</h3>
+        <ul class="service-list">
+          {% for venue in service.venues %}
+            <li>
+              <strong>{{ venue.name }}</strong> <span class="service-years">{{ venue.years }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    {% else %}
+      <p class="service-placeholder">To be updated.</p>
+    {% endif %}
+  </section>
+</div>

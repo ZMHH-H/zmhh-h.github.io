@@ -1,0 +1,17 @@
+github_users:
+  - ZMHH-H
+
+github_stats_roles:
+  - OWNER
+  - ORGANIZATION_MEMBER
+  - COLLABORATOR
+
+github_stats_cache_version: "20261011"
+
+repo_description_lines_max: 3
+
+github_repos:
+  - alibaba-damo-academy/RynnBrain
+  - ZMHH-H/TACO
+  - ZMHH-H/MoTE
+  - ZMHH-H/FIMA

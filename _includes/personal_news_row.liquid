@@ -1,0 +1,8 @@
+<div class="news-row">
+  {% if include.item.date_precision == 'year' %}
+    <time datetime="{{ include.item.date | date: '%Y' }}">{{ include.item.date | date: '%Y' }}</time>
+  {% else %}
+    <time datetime="{{ include.item.date | date: '%Y-%m' }}">{{ include.item.date | date: '%b %Y' }}</time>
+  {% endif %}
+  <div>{{ include.item.content }}</div>
+</div>

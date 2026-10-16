@@ -1,0 +1,46 @@
+research_statement: I build multimodal agents that understand dynamic environments, anticipate future states, and act in the physical world.
+experiences:
+  - organization: Alibaba DAMO Academy
+    role: Research Intern · Embodied Intelligence Lab
+    advisors:
+      - name: Xin Li
+        url: https://lixin4ever.github.io/
+      - name: Deli Zhao
+        url: https://zhaodeli.github.io/
+    period: Sep 2025 — Present
+    description: Embodied foundation models, physical agents, world models, and vision-language-action learning.
+    type: Research
+  - organization: Tongji University
+    role: Ph.D. in Control Science and Engineering
+    period: Sep 2021 — Mar 2027
+    type: Education
+  - organization: Politecnico di Torino
+    role: B.Eng. in Computer Engineering
+    period: Aug 2020 — Oct 2021
+    type: Education
+  - organization: Tongji University
+    role: B.Eng. in Electronic Information Engineering
+    period: Sep 2017 — Jun 2021
+    type: Education
+awards:
+  - title: Academic Scholarship
+    organization: Tongji University
+  - title: National First Prize
+    organization: RoboMaster Robotics Competition
+  - title: National First Prize
+    organization: RoboCup Standard Platform
+academic_services:
+  - category: Conference Reviewer
+    venues:
+      - name: CVPR
+        years: 2024–present
+      - name: NeurIPS
+        years: 2024–present
+      - name: ICLR
+        years: 2025–present
+      - name: ICML
+        years: 2025–present
+      - name: ICCV
+        years: "2025"
+      - name: ACM MM
+        years: "2023"

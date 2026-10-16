@@ -1,0 +1,54 @@
+---
+---
+{% assign paper_url = entry.paper_url %}
+{% if entry.arxiv %}
+  {% assign paper_url = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}
+{% endif %}
+<article class="home-paper" id="selected-{{ entry.key }}">
+  {% if entry.home_preview %}
+    {% if paper_url %}
+      <a class="paper-image" href="{{ paper_url }}" aria-label="Read {{ entry.title | escape }}">
+        <img src="{{ entry.home_preview | relative_url }}" alt="{{ entry.preview_alt | escape }}" width="1000" height="560" loading="lazy">
+      </a>
+    {% else %}
+      <div class="paper-image">
+        <img src="{{ entry.home_preview | relative_url }}" alt="{{ entry.preview_alt | escape }}" width="1000" height="560" loading="lazy">
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="paper-image-slot" aria-hidden="true"></div>
+  {% endif %}
+  <div class="paper-body">
+    <p class="paper-meta">
+      {{ entry.home_venue }} · {{ entry.year }}
+      {% if entry.contribution %}
+        <span class="paper-contribution">
+          {{- entry.contribution | replace: '(alphabetical order)', '<span class="contribution-note">(alphabetical order)</span>' -}}
+        </span>
+      {% endif %}
+    </p>
+    <h3>
+      {% if paper_url %}
+        <a href="{{ paper_url }}">{{ entry.title }}</a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </h3>
+    <p class="paper-authors">{{ entry.home_authors }}</p>
+    <p class="paper-summary">{{ entry.summary }}</p>
+    <div class="paper-links">
+      {% if paper_url %}
+        <a href="{{ paper_url }}">Paper <span aria-hidden="true">↗</span></a>
+      {% endif %}
+      {% if entry.dataset %}
+        <a href="{{ entry.dataset }}">Data <span aria-hidden="true">↗</span></a>
+      {% endif %}
+      {% if entry.website -%}
+        <a href="{{ entry.website }}">Project <span aria-hidden="true">↗</span></a>
+      {%- endif %}
+      {% if entry.code -%}
+        <a href="{{ entry.code }}">Code <span aria-hidden="true">↗</span></a>
+      {%- endif %}
+    </div>
+  </div>
+</article>

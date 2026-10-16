@@ -1,0 +1,8 @@
+.local/
+.bundle/
+vendor/
+node_modules/
+_site/
+**/*.map
+**/*.min.css
+**/*.min.js

@@ -1,0 +1,44 @@
+_site
+.bundle
+.DS_store
+.idea
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+.tweet-cache
+.venv
+assets/libs/
+assets/rendercv/rendercv_output/*.typ
+al-folio-upgrade-report.md
+node_modules/
+output/playwright/
+test-results/
+vendor
+
+# Python bytecode from bin/ helper scripts
+__pycache__/
+*.pyc
+
+# Reproducible local runtime and build tools
+.local/
+.DS_Store
+
+# Keep recovery archives outside the site source
+website-backups/
+
+# Local credentials and private keys
+.env
+.env.*
+!.env.example
+!.env.*.example
+credentials.json
+service-account*.json
+.credentials/
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.pem
+*.key
+*.p12
+*.pfx

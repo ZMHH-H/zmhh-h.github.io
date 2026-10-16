@@ -1,0 +1,31 @@
+name: Deploy site
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.11"
+          bundler-cache: true
+      - name: Build and check internal links
+        env:
+          JEKYLL_ENV: production
+        run: |
+          bundle exec jekyll build
+          bundle exec ruby bin/check-site.rb
+      - name: Deploy
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          single-commit: true
+          commit-message: Initial commit
