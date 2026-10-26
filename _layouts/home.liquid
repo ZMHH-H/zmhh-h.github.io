@@ -37,7 +37,7 @@ layout: default
     </div>
     <div class="home-news">
       {% assign featured_news = site.news | where: 'featured', true | sort: 'date' | reverse %}
-      {% for item in featured_news limit: 3 %}
+      {% for item in featured_news limit: 4 %}
         {% include personal_news_row.liquid item=item %}
       {% endfor %}
     </div>

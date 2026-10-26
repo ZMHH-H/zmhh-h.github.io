@@ -11,6 +11,7 @@ github_stats_cache_version: "20261011"
 repo_description_lines_max: 3
 
 github_repos:
+  - alibaba-damo-academy/RynnUnify
   - alibaba-damo-academy/RynnBrain
   - ZMHH-H/TACO
   - ZMHH-H/MoTE
