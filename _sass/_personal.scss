@@ -133,6 +133,19 @@ button:focus-visible {
       color: var(--global-text-color);
     }
   }
+  .intro-opportunities {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--global-theme-color);
+    border-radius: 0 6px 6px 0;
+    background: var(--global-card-bg-color);
+    color: var(--global-text-color);
+    font-size: 14px;
+    line-height: 1.8;
+    .opportunities-heading {
+      color: var(--global-theme-color);
+    }
+  }
 }
 .intro-portrait {
   margin: 0;
