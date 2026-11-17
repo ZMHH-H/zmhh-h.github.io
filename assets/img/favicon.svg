@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">MZ — Minghao Zhu</title>
+  <rect width="64" height="64" rx="14" fill="#895922" />
+  <path d="M10 43V21l10 14 10-14v22M37 21h17L37 43h17" fill="none" stroke="#fff9ec" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
